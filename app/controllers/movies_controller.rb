@@ -15,7 +15,7 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.ratings
     session[:ratings] = params[:ratings] unless params[:ratings].nil?
     session[:sort] = params[:sort] unless params[:sort].nil?
-    
+
     if (params[:ratings].nil? && !session[:ratings].nil?) || (params[:sort].nil? && !session[:sort].nil?)
       redirect_to movies_path("ratings" => session[:ratings], "sort" => session[:sort])
     elsif !params[:ratings].nil? || !params[:sort].nil?
@@ -30,7 +30,9 @@ class MoviesController < ApplicationController
     else
       return @movies = Movie.all
     end
+
   end#part1 complete
+
 
   def new
     # default: render 'new' template
