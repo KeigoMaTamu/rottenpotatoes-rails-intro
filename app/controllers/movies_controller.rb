@@ -13,10 +13,14 @@ class MoviesController < ApplicationController
   def index
     # part 2
     @all_ratings = Movie.ratings
-    session[:ratings] = params[:ratings] unless params[:ratings].nil?
+    
     session[:sort] = params[:sort] unless params[:sort].nil?
-
-    if (params[:ratings].nil? && !session[:ratings].nil?) || (params[:sort].nil? && !session[:sort].nil?)
+    session[:ratings] = params[:ratings] unless params[:ratings].nil?
+    #check whether sort or not
+    
+    if (params[:ratings].nil? && !session[:ratings].nil?) || 
+      (params[:sort].nil? && !session[:sort].nil?)
+      #if ratings is not select, we redirect to new page
       redirect_to movies_path("ratings" => session[:ratings], "sort" => session[:sort])
     elsif !params[:ratings].nil? || !params[:sort].nil?
       if !params[:ratings].nil?
