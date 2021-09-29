@@ -28,16 +28,18 @@ class MoviesController < ApplicationController
     end
     
     #part 1 start right here
-    if params[:sort] == "movie_title"
-      @movies = Movie.order(:title)
-      @class_title = "hilite"
-      session[:sort] = "title"
-    elsif params[:sort] == "release_date"
-      @movies = Movie.order(:release_date)
-      @class_release_date = "hilite"
-      session[:sort] = "release_date"
-    else
-      @movies = Movie.all
+    if(params[:sort] != nil)
+      if params[:sort] == "movie_title"
+        @movies = Movie.order(:title)
+        @class_title = "hilite"
+        session[:sort] = "title"
+      elsif params[:sort] == "release_date"
+        @movies = Movie.order(:release_date)
+        @class_release_date = "hilite"
+        session[:sort] = "release_date"
+      else
+        @movies = Movie.all
+      end
     end
   end#part1 complete
 
