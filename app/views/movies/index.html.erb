@@ -8,7 +8,7 @@
     <tr>
       <th><%= link_to "Movie Title", {controller: :movies, action: :index, sort: "movie_title"}, id: "title_header" %></th>
       <th>Rating</th>
-      <th>Release Date</th>
+      <th><%= link_to "Release Date", {controller: :movies, action: :index, sort: "release_date"}, id: "release_date_header" %></th>
       <th>More Info</th>
     </tr>
   </thead>
