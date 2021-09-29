@@ -5,13 +5,13 @@
 <table class="table table-striped col-md-12" id="movies">
   <thead>
     <tr>
-      <th class=class_title>
+      <th class=@class_title>
       <%= link_to "Movie Title", 
           {controller: :movies, action: :index, sort: "movie_title"}, 
           id: "title_header" %>
       </th>
       <th>Rating</th>
-      <th class=class_release_date>
+      <th class=@class_release_date>
       <%= link_to "Release Date", 
           {controller: :movies, action: :index, sort: "release_date"}, 
           id: "release_date_header" %>
