@@ -10,7 +10,7 @@
 <table id="movies">
   <thead>
     <tr>
-      <th class="hilite('title')">
+      <th class="<%= hilite('title') %>">
         <a href="<%= movies_path({:sort => 'title'}) %>" id="title_header">Movie Title</a>
       </th>
       <th class="<%= hilite('rating') %>">
