@@ -1,5 +1,6 @@
 <!--  This file is app/views/movies/index.html.erb -->
 <h2>All Movies</h2>
+
 <%= form_tag movies_path(@id), method: :get, id: 'ratings_form' do %>
   Include:
   <% @all_ratings.each do |rating| %>
@@ -10,22 +11,15 @@
   <% end %>
   <%= submit_tag 'Refresh', id: 'ratings_submit', class: 'btn btn-primary' %>
 <% end %>
+
 <%#  Part 1: Start here... %>
 
 <table class="table table-striped col-md-12" id="movies">
   <thead>
     <tr>
-      <th class=@class_title>
-      <%= link_to "Movie Title", 
-          {controller: :movies, action: :index, sort: "movie_title"}, 
-          id: "title_header" %>
-      </th>
+      <th><%= link_to "Movie Title", movies_path(:id => 'title_header', :ratings => Hash[@ratings_to_show.collect { |item| [item, "1"] } ]), :id => 'title_header' %></th>
       <th>Rating</th>
-      <th class=@class_release_date>
-      <%= link_to "Release Date", 
-          {controller: :movies, action: :index, sort: "release_date"}, 
-          id: "release_date_header" %>
-      </th>
+      <th><%= link_to "Release Date", movies_path(:id => 'release_date_header', :ratings => Hash[@ratings_to_show.collect { |item| [item, "1"] } ]), :id => 'release_date_header' %></th>
       <th>More Info</th>
     </tr>
   </thead>
