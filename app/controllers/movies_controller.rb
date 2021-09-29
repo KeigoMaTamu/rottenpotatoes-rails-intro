@@ -18,7 +18,7 @@ class MoviesController < ApplicationController
     else
       @movies = Movie.all
     end
-  end
+  end#part1 complete
 
   def new
     # default: render 'new' template
